@@ -84,4 +84,5 @@ EXPOSE 8000
 ENV DEFAULT_DATA_DIR=/var/lib/plausible
 VOLUME /var/lib/plausible
 #CMD ["run"]
-CMD ["mix", "ecto.migrate"]
+CMD ["/bin/sh", "-c", "./bin/plausible eval 'Plausible.Release.migrate'"]
+
